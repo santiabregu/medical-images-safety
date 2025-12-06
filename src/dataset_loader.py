@@ -1,19 +1,19 @@
-"""
-Dataset loader for medical images.
+import os
+from PIL import Image
 
-This module provides functionality to load and manage medical image datasets
-for the healthy and tumor categories.
-"""
+def load_dataset(path):
+    images = []
+    labels = []
 
+    for label in ["healthy", "tumor"]:
+        class_dir = os.path.join(path, label)
 
-def load_dataset(data_path):
-    """
-    Load medical images dataset from the specified path.
-    
-    Args:
-        data_path (str): Path to the data directory containing healthy/ and tumor/ subdirectories
-        
-    Returns:
-        dict: Dictionary containing loaded dataset information
-    """
-    pass
+        for filename in os.listdir(class_dir):
+            if filename.lower().endswith((".png", ".jpg", ".jpeg")):
+                img_path = os.path.join(class_dir, filename)
+                img = Image.open(img_path).convert("L")  # grayscale
+
+                images.append(img)
+                labels.append(label)
+
+    return images, labels
