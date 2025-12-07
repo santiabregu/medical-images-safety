@@ -66,3 +66,20 @@ venv.bak/
 # OS
 .DS_Store
 Thumbs.db
+
+# Project-specific
+
+# Archivos cifrados y descifrados generados
+data/encrypted/
+data/decrypted/
+
+# Archivos de comparación y visualización generados
+data/*_comparison.png
+data/*_performance.png
+data/encryption_comparison.png
+data/modes_comparison.png
+data/modes_performance.png
+
+# Mantener estructura de directorios pero ignorar contenido generado
+!data/encrypted/.gitkeep
+!data/decrypted/.gitkeep

@@ -3,3 +3,5 @@ pillow
 matplotlib
 scikit-image
 opencv-python
+cryptography
+pycryptodome
